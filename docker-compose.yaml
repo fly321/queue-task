@@ -1,0 +1,28 @@
+version: "3.0"
+networks:
+  flyServer:
+    driver: bridge
+services:
+  app-test:
+    image: "hyperf/hyperf:8.1-alpine-v3.15-swoole-v5"
+    volumes:
+      - ".:/data/project"
+    working_dir: "/data/project"
+    entrypoint:
+      - /bin/sh
+    privileged: true
+    user: root
+    tty: true # 终端交互
+    networks:
+      - flyServer
+  rabbitmt1:
+    image: "rabbitmq:3.8.15-management"
+    ports:
+      - "5673:5672"
+      - "15673:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    networks:
+      - flyServer

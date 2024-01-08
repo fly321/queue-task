@@ -1,0 +1,19 @@
+{
+    "name": "fly321/queue-task",
+    "description": "task",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Fly321\\QueueTask\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fly321"
+        }
+    ],
+    "require": {
+        "php-amqplib/php-amqplib": "^3.6"
+    }
+}
