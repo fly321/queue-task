@@ -4,7 +4,7 @@ use Fly321\QueueTask\Entity\RabbitMqEntity;
 use Fly321\QueueTask\Service\AMQPServiceImpl;
 use Fly321\QueueTask\Task\QueueTask;
 
-require_once __DIR__. '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 $entity = new RabbitMqEntity([
     'host' => 'rabbitmt1',
