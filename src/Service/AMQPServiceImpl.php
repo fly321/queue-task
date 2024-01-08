@@ -40,7 +40,7 @@ class AMQPServiceImpl implements AMQPService
      */
     public function getAMQPStreamConnection(): AMQPStreamConnection
     {
-        if (is_null($this->rabbitMqEntity->connection)) {
+        if (!$this->rabbitMqEntity->connection instanceof AMQPStreamConnection) {
             $this->rabbitMqEntity->connection = new AMQPStreamConnection(
                 $this->rabbitMqEntity->host,
                 $this->rabbitMqEntity->port,
@@ -70,7 +70,7 @@ class AMQPServiceImpl implements AMQPService
      */
     public function getChannel(): AMQPChannel
     {
-        if (is_null($this->channel)) {
+        if (!$this->channel instanceof AMQPChannel) {
             $this->channel = $this->getAMQPStreamConnection()->channel();
         }
         return $this->channel;
